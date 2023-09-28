@@ -775,14 +775,14 @@ build_all()
     build_from_github libbitcoin-system "$PARALLEL" false "${BITCOIN_SYSTEM_OPTIONS[@]}" "$@"
     unpack_from_tarball "$ZMQ_ARCHIVE" "$ZMQ_URL" gzip "$BUILD_ZMQ"
     build_from_tarball "$ZMQ_ARCHIVE" . "$PARALLEL" "$BUILD_ZMQ" "${ZMQ_OPTIONS[@]}" "$@"
-    create_from_github libbitcoin libbitcoin-protocol version3
+    create_from_github libbitcoin libbitcoin-protocol v3.8.0
     build_from_github libbitcoin-protocol "$PARALLEL" false "${BITCOIN_PROTOCOL_OPTIONS[@]}" "$@"
-    create_from_github libbitcoin libbitcoin-client version3
+    create_from_github libbitcoin libbitcoin-client v3.8.0
     build_from_github libbitcoin-client "$PARALLEL" false "${BITCOIN_CLIENT_OPTIONS[@]}" "$@"
-    create_from_github libbitcoin libbitcoin-network version3
+    create_from_github libbitcoin libbitcoin-network v3.8.0
     build_from_github libbitcoin-network "$PARALLEL" false "${BITCOIN_NETWORK_OPTIONS[@]}" "$@"
     if [[ ! ($CI == true) ]]; then
-        create_from_github libbitcoin libbitcoin-explorer version3
+        create_from_github libbitcoin libbitcoin-explorer v3.8.0
         build_from_github libbitcoin-explorer "$PARALLEL" true "${BITCOIN_EXPLORER_OPTIONS[@]}" "$@"
     else
         push_directory "$PRESUMED_CI_PROJECT_PATH"
